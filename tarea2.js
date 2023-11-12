@@ -48,7 +48,26 @@ else if (f >= 65 && f <= 100) {
 else {
     console.log("Error na idade!!");
 }
-
+switch (true) {
+    case f>=0 && f<=12:
+        console.log("Neno"); 
+        break;
+    case f>=13 && f<=18:
+        console.log("Adolescente"); 
+        break;
+    case f>=19 && f<=30:
+        console.log("Xoven"); 
+        break;
+    case f>=31 && f<=64:
+        console.log("Adulto"); 
+        break;  
+    case f>=65 && f<=100:
+        console.log("Xubilado"); 
+        break;  
+    default:
+     console.log("Error na idade!!")
+     break;
+} 
 var operando = 125;
 var resultado = 0;
 resultado = operando >> 3;

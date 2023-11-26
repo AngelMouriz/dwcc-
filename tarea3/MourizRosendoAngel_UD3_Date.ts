@@ -1,33 +1,27 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ventana Emergente</title>
-  <script>
-function diasCurso() {
-    let hoy = new Date();
-    let finalCurso = new Date(hoy.getFullYear(), 5, 25);
-    console.log ("Días hasta final de curso: "+(finalCurso-hoy)/1000/60/60/24);
+function diasCurso(): void {
+    let hoy: Date = new Date();
+    let finalCurso: Date = new Date(hoy.getFullYear(), 5, 25);
+    console.log("Días hasta final de curso: " + (finalCurso.getTime() - hoy.getTime()) / 1000 / 60 / 60 / 24);
 }
 
-function aniversarioEnFinDeSemana() {
-    const aniversario = new Date(prompt("Introduce cumpleaños: (formato: MM/DD):"));
-    for (let ano = new Date().getFullYear(); ano <= 2100; ano++) {
+function aniversarioEnFinDeSemana(): void {
+    const aniversario: Date = new Date(prompt("Introduce cumpleaños: (formato: MM/DD):"));
+    for (let ano: number = new Date().getFullYear(); ano <= 2100; ano++) {
         aniversario.setFullYear(ano);
-        const diaSemana = aniversario.getDay();
-        
+        const diaSemana: number = aniversario.getDay();
+
         if (diaSemana === 0 || diaSemana === 6) {
             console.log(`El cumpleaños cae en fin de semana en el año ${ano}.`);
         }
     }
 }
-function mostrarFecha(formato) {
-    const mostrarFecha = new Date();
-    
+
+function mostrarFecha(formato: number): void {
+    const mostrarFecha: Date = new Date();
+
     switch (formato) {
         case 1:
-             console.log(`${mostrarFecha.getMonth() + 1}/${mostrarFecha.getDate()}/${mostrarFecha.getFullYear()}`);
+            console.log(`${mostrarFecha.getMonth() + 1}/${mostrarFecha.getDate()}/${mostrarFecha.getFullYear()}`);
             break;
         case 2:
             console.log(`${Intl.DateTimeFormat('es-ES', { weekday: 'long' }).format(mostrarFecha)}, ${mostrarFecha.getDate()} de ${Intl.DateTimeFormat('es-ES', { month: 'long' }).format(mostrarFecha)} de ${mostrarFecha.getFullYear()}`);
@@ -40,9 +34,9 @@ function mostrarFecha(formato) {
     }
 }
 
-function mostrarHora(formato) {
-    const mostrarHora = new Date();
-    
+function mostrarHora(formato: number): void {
+    const mostrarHora: Date = new Date();
+
     switch (formato) {
         case 1:
             console.log(`${mostrarHora.getHours()}:${mostrarHora.getMinutes()}:${mostrarHora.getSeconds()}`);
@@ -62,9 +56,3 @@ mostrarFecha(2);
 mostrarFecha(3);
 mostrarHora(1);
 mostrarHora(2);
-
-  </script>
-</head>
-<body>
-</body>
-</html>

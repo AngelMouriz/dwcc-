@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ventana Emergente</title>
   <script>
-    let ventanaEmergente;
+    let ventana;
 
     function abrirVentana() {
       const permiso = confirm("¿Permitir abrir la ventana emergente?");
       
       if (permiso) {
-        ventanaEmergente = window.open('emergente.html', '_blank', 'width=300,height=300,toolbar=no,menubar=no,left=400,top=400');
-        if (ventanaEmergente) {
-          ventanaEmergente.focus();
+        ventana = window.open('emergente.html', '_blank', 'width=300,height=300,left=400,top=400');
+        if (ventana) {
+          ventana.focus();
         } else {
           alert('Error: No se pudo abrir la ventana emergente.');
         }
@@ -21,23 +21,24 @@
     }
 
     function cerrarVentana() {
-      if (ventanaEmergente && !ventanaEmergente.closed) {
-        ventanaEmergente.close();
+      if (ventana && !ventana.closed) {
+        ventana.close();
       } else {
         alert('Error: La ventana emergente ya está cerrada o no se abrió.');
       }
     }
 
     function desplazarVentana() {
-      if (ventanaEmergente && !ventanaEmergente.closed) {
-        ventanaEmergente.moveBy(50, 50);
-        ventanaEmergente.focus();
+      if (ventana && !ventana.closed) {
+        ventana.moveBy(50, 50);
+        ventana.moveTo(ventana.screenX + 50, ventana.screenY + 50);
+        ventana.focus();
       } else {
         alert('Error: La ventana emergente ya está cerrada o no se abrió.');
       }
     }
 
-    function cerrarVentanaDesdePrincipal() {
+    function cerrarVentana() {
       cerrarVentana();
     }
   </script>
@@ -45,6 +46,6 @@
 <body>
   <button onclick="abrirVentana()">Abrir Ventana</button>
   <button onclick="desplazarVentana()">Desplazar Ventana</button>
-  <button onclick="cerrarVentanaDesdePrincipal()">Cerrar Ventana desde Principal</button>
+  <button onclick="cerrarVentana()">Cerrar Ventana</button>
 </body>
 </html>

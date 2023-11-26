@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventana Emergente</title>
+  <script>
+  // Función para calcular el número de días hasta el final del curso (25 de junio)
+function diasCurso() {
+    let hoy = new Date();
+    let finalCurso = new Date(hoy.getFullYear(), 5, 25);
+    console.log ("Días hasta final de curso: "+(finalCurso-hoy)/1000/60/60/24);
+}
+
+// Función para encontrar años en los que el aniversario cae en fin de semana
+function aniversarioEnFinDeSemana() {
+    const aniversario = new Date(prompt("Introduce cumpleaños: (formato: MM/DD):"));
+    for (let ano = new Date().getFullYear(); ano <= 2100; ano++) {
+        aniversario.setFullYear(ano);
+        const diaSemana = aniversario.getDay();
+        
+        if (diaSemana === 0 || diaSemana === 6) {
+            console.log(`El cumpleaños cae en fin de semana en el año ${ano}.`);
+        }
+    }
+}
+// Función para mostrar la fecha actual en diferentes formatos
+function mostrarFecha(formato) {
+    const mostrarFecha = new Date();
+    
+    switch (formato) {
+        case 1:
+             console.log(`${mostrarFecha.getMonth() + 1}/${mostrarFecha.getDate()}/${mostrarFecha.getFullYear()}`);
+            break;
+        case 2:
+            console.log(`${Intl.DateTimeFormat('es-ES', { weekday: 'long' }).format(mostrarFecha)}, ${mostrarFecha.getDate()} de ${Intl.DateTimeFormat('es-ES', { month: 'long' }).format(mostrarFecha)} de ${mostrarFecha.getFullYear()}`);
+            break;
+        case 3:
+            console.log(`${Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(mostrarFecha)}, ${Intl.DateTimeFormat('en-US', { month: 'long' }).format(mostrarFecha)} ${mostrarFecha.getDate()}, ${mostrarFecha.getFullYear()}`);
+            break;
+        default:
+            console.log("Formato no válido.");
+    }
+}
+
+// Función para mostrar la hora actual en diferentes formatos
+function mostrarHora(formato) {
+    const mostrarHora = new Date();
+    
+    switch (formato) {
+        case 1:
+            console.log(`${mostrarHora.getHours()}:${mostrarHora.getMinutes()}:${mostrarHora.getSeconds()}`);
+            break;
+        case 2:
+            console.log(`${mostrarHora.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false })}`);
+            break;
+        default:
+            console.log("Formato no válido.");
+    }
+}
+
+// Ejemplos de uso
+diasCurso();
+aniversarioEnFinDeSemana();
+mostrarFecha(1);
+mostrarFecha(2);
+mostrarFecha(3);
+mostrarHora(1);
+mostrarHora(2);
+
+  </script>
+</head>
+<body>
+</body>
+</html>

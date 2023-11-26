@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <script>
+        let nombre = prompt("Nombre y apellidos:");
+        let longitudTotal = nombre.length;
+        let tamanoSenEspazos = nombre.replace(/\s/g, "").length;
+        let minusculas = nombre.toLowerCase();
+        let maiusculas = nombre.toUpperCase();
+        let partes = nombre.split(" ");
+        let nombre2 = partes[0];
+        let apellido1 = partes[1];
+        let apellido2 = partes[2];
+        let nombreUsuario = `${nombre2.toLowerCase()}${apellido1.charAt(0).toUpperCase()}${apellido2.charAt(0).toUpperCase()}`;
+        console.log("Tamaño total:", longitudTotal);
+        console.log("Tamaño sin espacios:", tamanoSenEspazos);
+        console.log("Minúsculas:", minusculas);
+        console.log("Mayúsculas:", maiusculas);
+        console.log("Nombre:", nombre2);
+        console.log("apellido1:", apellido1);
+        console.log("apellido2:", apellido2);
+        console.log("UsuarioPropuesto", nombreUsuario);
+        let contrasena = prompt("Introduce un contraseña:");
+        let contrasenaOK = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/.test(contrasena);
+        console.log("O contrasena cumpre as premisas:", contrasenaOK);
+  </script>
+</head>
+<body>
+</body>
+</html>

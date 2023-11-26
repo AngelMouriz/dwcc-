@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventana Emergente</title>
+  <script>
+    let ventanaEmergente;
+
+    function abrirVentana() {
+      const permiso = confirm("¿Permitir abrir la ventana emergente?");
+      
+      if (permiso) {
+        ventanaEmergente = window.open('emergente.html', '_blank', 'width=300,height=300,toolbar=no,menubar=no,left=400,top=400');
+        if (ventanaEmergente) {
+          ventanaEmergente.focus();
+        } else {
+          alert('Error: No se pudo abrir la ventana emergente.');
+        }
+      }
+    }
+
+    function cerrarVentana() {
+      if (ventanaEmergente && !ventanaEmergente.closed) {
+        ventanaEmergente.close();
+      } else {
+        alert('Error: La ventana emergente ya está cerrada o no se abrió.');
+      }
+    }
+
+    function desplazarVentana() {
+      if (ventanaEmergente && !ventanaEmergente.closed) {
+        ventanaEmergente.moveBy(50, 50);
+        ventanaEmergente.focus();
+      } else {
+        alert('Error: La ventana emergente ya está cerrada o no se abrió.');
+      }
+    }
+
+    function cerrarVentanaDesdePrincipal() {
+      cerrarVentana();
+    }
+  </script>
+</head>
+<body>
+  <button onclick="abrirVentana()">Abrir Ventana</button>
+  <button onclick="desplazarVentana()">Desplazar Ventana</button>
+  <button onclick="cerrarVentanaDesdePrincipal()">Cerrar Ventana desde Principal</button>
+</body>
+</html>

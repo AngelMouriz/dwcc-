@@ -1,0 +1,70 @@
+<script>
+
+let paises =["Afganistán","Albania","Alemania","Andorra","Angola","Antigua y Barbuda","Arabia Saudita","Argelia","Argentina","Armenia","Australia","Austria","Azerbaiyán","Bahamas","Bangladés","Barbados","Baréin","Bélgica","Belice","Benín","Bielorrusia","Birmania","Bolivia","Bosnia y Herzegovina","Botsuana","Brasil","Brunéi","Bulgaria","Burkina Faso","Burundi","Bután","Cabo Verde","Camboya","Camerún","Canadá","Catar","Chad","Chile","China","Chipre","Ciudad del Vaticano","Colombia","Comoras","Corea del Norte","Corea del Sur","Costa de Marfil","Costa Rica","Croacia","Cuba","Dinamarca","Dominica","Ecuador","Egipto","El Salvador","Emiratos Árabes Unidos","Eritrea","Eslovaquia","Eslovenia","España","Estados Unidos","Estonia","Etiopía","Filipinas","Finlandia","Fiyi","Francia","Gabón","Gambia","Georgia","Ghana","Granada","Grecia","Guatemala","Guyana","Guinea","Guinea ecuatorial","Guinea-Bisáu","Haití","Honduras","Hungría","India","Indonesia","Irak","Irán","Irlanda","Islandia","Islas Marshall","Islas Salomón","Israel","Italia","Jamaica","Japón","Jordania","Kazajistán","Kenia","Kirguistán","Kiribati","Kuwait","Laos","Lesoto","Letonia","Líbano","Liberia","Libia","Liechtenstein","Lituania","Luxemburgo","Madagascar","Malasia","Malaui","Maldivas","Malí","Malta","Marruecos","Mauricio","Mauritania","México","Micronesia","Moldavia","Mónaco","Mongolia","Montenegro","Mozambique","Namibia","Nauru","Nepal","Nicaragua","Níger","Nigeria","Noruega","Nueva Zelanda","Omán","Países Bajos","Pakistán","Palaos","Palestina","Panamá","Papúa Nueva Guinea","Paraguay","Perú","Polonia","Portugal","Reino Unido","República Centroafricana","República Checa","República de Macedonia","República del Congo","República Democrática del Congo","República Dominicana","República Sudafricana","Ruanda","Rumanía","Rusia","Samoa","San Cristóbal y Nieves","San Marino","San Vicente y las Granadinas","Santa Lucía","Santo Tomé y Príncipe","Senegal","Serbia","Seychelles","Sierra Leona","Singapur","Siria","Somalia","Sri Lanka","Suazilandia","Sudán","Sudán del Sur","Suecia","Suiza","Surinam","Tailandia","Tanzania","Tayikistán","Timor Oriental","Togo","Tonga","Trinidad y Tobago","Túnez","Turkmenistán","Turquía","Tuvalu","Ucrania","Uganda","Uruguay","Uzbekistán","Vanuatu","Venezuela","Vietnam","Yemen","Yibuti","Zambia","Zimbabue"];
+
+console.log(paises);
+
+function cantidadArray () {
+    console.log(paises.length);
+}
+
+function imprimeArray () {
+    console.log(paises);
+}
+
+function arrayInverso () {
+    console.log(paises.reverse()); //enseñamos array al revés. 
+    paises.reverse(); //lo dejamos como estaba. Se podría hacer con un bucle pero esto es más sencillo (Habría que ver si es computacionalmente lógico)
+}
+
+function anadePaisPrincipio () {
+    let paisnuevo = prompt("País a añadir:");
+    paises.unshift(paisnuevo);
+    console.log("AÑADIDO NUEVO PAIS:" + paises);
+}
+
+function anadePaisFinal () {
+    let paisnuevo = prompt("País a añadir:"); //Habría que hacer una validacion de datos, pero no se pide en el enunciado. Además es complicado ya que un país puede ser cualquier cosa. 
+    paises.push(paisnuevo);
+    console.log("AÑADIDO ULTIMO PAIS BORRADO:" + paises);
+}
+function borraPrimerPais () {
+    console.log("PRIMER PAIS BORRADO:" + paises.shift());
+}
+
+function borraUltimoPais () {
+    console.log("ULTIMO PAIS BORRADO:" + paises.pop());
+}
+
+function paisPosicion () {
+    let posicion = prompt("Posición del país: ");
+    console.log("POSISCION PAIS:" + paises[posicion]);
+}
+
+function introducePais () {
+    let posicion = prompt("País a buscar: ");
+    console.log("PAIS EN POSICION (-1 SI NO EXISTE):" + paises.indexOf(posicion));
+}
+
+function paisEntrePosiciones () {
+    let posicion1 = parseInt(prompt("Posición del país 1: "));
+    let posicion2 = parseInt(prompt("Posición del país 2: "));
+    console.log(paises.slice(posicion1,posicion2));
+}
+
+cantidadArray();
+imprimeArray();
+arrayInverso();
+anadePaisPrincipio();
+anadePaisFinal();
+borraPrimerPais();
+borraUltimoPais();
+paisPosicion();
+introducePais();
+paisEntrePosiciones();
+
+
+
+</script>
+
+

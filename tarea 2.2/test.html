@@ -1,0 +1,48 @@
+<html><head>
+
+<script>
+
+class Disco {
+    nome
+    grupo
+    anoPublicacion
+    tipoMusica
+    prestamo
+    
+  constructor(nome, grupo, anoPublicacion, tipoMusica, prestamo) {
+    this.nome = nome;
+    this.grupo = grupo;
+    this.anoPublicacion = anoPublicacion;
+    this.tipoMusica = tipoMusica;
+    this.prestamo = prestamo;
+  }
+
+  //CARGA DATOS
+  cargarDatos(nome, grupo, anoPublicacion, tipoMusica, prestamo) {
+    this.nome = nome;
+    this.grupo = grupo;
+    this.anoPublicacion = anoPublicacion;
+    this.tipoMusica = tipoMusica;
+    this.prestamo = prestamo;
+  }
+
+//INFO POR CONSOLA
+  mostrarInformacion() {
+    return `Nome: ${this.nome}, Grupo ou Cantante: ${this.grupo}, Ano de Publicación: ${this.anoPublicacion}, Tipo de Música: ${this.tipoMusica}, Prestamo: ${this.prestamo ? 'Si' : 'Non'}`;
+  }
+
+}
+
+let discos = [];
+discos.push(new Disco('Nome1', 'Grupo1', 1999, 'Genero1', false));
+discos.push(new Disco('Nome2', 'Grupo2', 1998, 'Genero2', false));
+
+console.log('Mostrando todos os discos da colección:');
+function mostrarDiscos ()
+ {
+    discos.forEach((disco, index) => {console.log(disco.mostrarInformacion()) 
+    });
+ }
+</script>
+
+</head><body></body></html>
